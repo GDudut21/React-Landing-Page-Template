@@ -17,11 +17,15 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
-          <a className="navbar-brand page-scroll" href="#page-top">
-            ARCHICAST
-          </a>{" "}
+          <a className="navbar-brand page-scroll" href="#page-top" style={{ display: "flex", alignItems: "center" }}>
+           < img
+              src="img/archicastlogo.png"
+              alt="Logo"
+              style={{ height: "30px", marginRight: "8px" }}
+            />
+             <span style={{ fontWeight: "bold", fontSize: "20px" }}>ARCHICAST</span>
+          </a>
         </div>
-
         <div
           className="collapse navbar-collapse"
           id="bs-example-navbar-collapse-1"
