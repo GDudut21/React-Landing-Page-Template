@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export const Navigation = (props) => {
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
@@ -21,7 +22,7 @@ export const Navigation = (props) => {
            < img
               src="img/archicastlogo.png"
               alt="Logo"
-              style={{ height: "30px", marginRight: "8px" }}
+              style={{ height: "70px", marginRight: "8px" }}
             />
              <span style={{ fontWeight: "bold", fontSize: "20px" }}>ARCHICAST</span>
           </a>
