@@ -1,155 +1,66 @@
-import { useState } from "react";
-import emailjs from "emailjs-com";
 import React from "react";
+import { Link } from "react-scroll";
+import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
+import "./contact.css"; // Import your CSS file for styling
 
-const initialState = {
-  name: "",
-  email: "",
-  message: "",
-};
-export const Contact = (props) => {
-  const [{ name, email, message }, setState] = useState(initialState);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setState((prevState) => ({ ...prevState, [name]: value }));
-  };
-  const clearState = () => setState({ ...initialState });
-  
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(name, email, message);
-    
-    {/* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */ }
-    
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
-      .then(
-        (result) => {
-          console.log(result.text);
-          clearState();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
+export const Contact = () => {
   return (
-    <div>
-      <div id="contact">
-        <div className="container">
-          <div className="col-md-8">
-            <div className="row">
-              <div className="section-title">
-                <h2>Get In Touch</h2>
-                <p>
-                  Please fill out the form below to send us an email and we will
-                  get back to you as soon as possible.
-                </p>
-              </div>
-              <form name="sentMessage" validate onSubmit={handleSubmit}>
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="form-control"
-                        placeholder="Name"
-                        required
-                        onChange={handleChange}
-                      />
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="form-control"
-                        placeholder="Email"
-                        required
-                        onChange={handleChange}
-                      />
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <textarea
-                    name="message"
-                    id="message"
-                    className="form-control"
-                    rows="4"
-                    placeholder="Message"
-                    required
-                    onChange={handleChange}
-                  ></textarea>
-                  <p className="help-block text-danger"></p>
-                </div>
-                <div id="success"></div>
-                <button type="submit" className="btn btn-custom btn-lg">
-                  Send Message
-                </button>
-              </form>
+    <>
+      {/* Background Image (optional) */}
+      <div className="footer-bg-container"></div>
+
+      {/* Footer Content */}
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-container">
+            {/* Quick Links */}
+            <div className="footer-links">
+              <h3>Quick Links</h3>
+              <ul>
+                <li><Link to="hero" smooth={true} duration={500}>Home</Link></li>
+                <li><Link to="services" smooth={true} duration={500}>Services</Link></li>
+                <li><Link to="about" smooth={true} duration={500}>About Us</Link></li>
+                <li><Link to="projects" smooth={true} duration={500}>Projects</Link></li>
+                <li><Link to="contact" smooth={true} duration={500}>Contact Us</Link></li>
+              </ul>
             </div>
-          </div>
-          <div className="col-md-3 col-md-offset-1 contact-info">
-            <div className="contact-item">
-              <h3>Contact Info</h3>
+
+            {/* Contact Info */}
+            <div className="footer-contact">
+              <h3>Contact Us</h3>
+              <p><FaMapMarkerAlt className="contact-icon" /> Kaybitin Road Corner C. Diaz St., San Gabriel, Santa Maria, Bulacan</p>
+              <p><FaPhone className="contact-icon" /> 044 4920756</p>
               <p>
-                <span>
-                  <i className="fa fa-map-marker"></i> Address
-                </span>
-                {props.data ? props.data.address : "loading"}
+                <FaEnvelope className="contact-icon" />{" "}
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=archiwallcorp@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: '#fff', textDecoration: 'none' }}
+                >
+                  archiwallcorp@gmail.com
+                </a>
               </p>
-            </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                  <i className="fa fa-phone"></i> Phone
-                </span>{" "}
-                {props.data ? props.data.phone : "loading"}
-              </p>
-            </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                  <i className="fa fa-envelope-o"></i> Email
-                </span>{" "}
-                {props.data ? props.data.email : "loading"}
-              </p>
-            </div>
-          </div>
-          <div className="col-md-12">
-            <div className="row">
-              <div className="social">
-                <ul>
-                  <li>
-                    <a href={props.data ? props.data.facebook : "/"}>
-                      <i className="fa fa-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.twitter : "/"}>
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.youtube : "/"}>
-                      <i className="fa fa-youtube"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
+        {/* Subsidiaries */}
+        <div className="footer-subsidiaries">
+          <h3>Our Subsidiaries</h3>
+          <div className="subsidiary-logos">
+            <img src="/images/archiwalllogo.png" alt="Subsidiary 1" />
+            <img src="/images/subsidiary2.png" alt="Subsidiary 2" />
+            <img src="/images/subsidiary3.png" alt="Subsidiary 3" />
+            <img src="/images/subsidiary4.png" alt="Subsidiary 4" />
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} Archiwall. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </>
   );
 };

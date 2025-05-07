@@ -28,7 +28,7 @@
   }
   
   .typewriter-container {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
     color: #444;
     border-right: 2px solid #444;
@@ -43,5 +43,37 @@
   @keyframes blink-caret {
     from, to { border-color: transparent; }
     50% { border-color: #444; }
+  }
+
+  .brand-title {
+    display: inline-block;
+  }
+  
+  /* Shared keyframe */
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ARCHI appears first */
+  .archi {
+    color: #007BFF;
+    opacity: 0;
+    animation: fadeSlideIn 1.2s ease-out forwards;
+    animation-delay: 0.2s;
+  }
+  
+  /* CAST appears second */
+  .cast {
+    color: #777777;
+    opacity: 0;
+    animation: fadeSlideIn 1.2s ease-out forwards;
+    animation-delay: 1s;
   }
   
