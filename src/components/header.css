@@ -30,7 +30,7 @@
   .typewriter-container {
     font-size: 22px;
     font-weight: 500;
-    color: #444;
+    color: #000e8e;
     border-right: 2px solid #444;
     padding-right: 5px;
     animation: blink-caret 0.7s step-end infinite;

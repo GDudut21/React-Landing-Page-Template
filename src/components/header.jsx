@@ -8,7 +8,7 @@ export const Header = () => {
     "Engineering Elegance in Every Cast.",
     "Forming Foundations for Better Living.",
     "Where Every Structure Begins with a Perfect Cast.",
-    "That Archicast"
+    "That is Archicast"
   ]);
 
   const [displayedText, setDisplayedText] = useState('');
@@ -65,10 +65,6 @@ export const Header = () => {
           <div className="typewriter-container">
             <span>{displayedText}</span>
           </div>
-
-          <a href="#about" className="btn btn-custom btn-lg page-scroll">
-            Get Started
-          </a>
         </div>
       </div>
     </header>
